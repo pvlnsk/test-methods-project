@@ -18,8 +18,8 @@ import javax.ws.rs.core.MediaType;
 
 public class RestClient {
     // Note: change url if you want to use the docker compose.
-    private static final String REST_URI = "http://localhost:8080/tm-backend/rest";
-    //private static final String REST_URI = "http://localhost:8089/tm-backend/rest";
+//    private static final String REST_URI = "http://localhost:8080/tm-backend/rest";
+    private static final String REST_URI = "http://localhost:8089/tm-backend/rest";
 
     private final static Client client = ClientBuilder.newClient(new ClientConfig().register(RestClientLogFilter.class));
 

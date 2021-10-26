@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public class DBService implements IDBService{
@@ -160,6 +161,15 @@ public class DBService implements IDBService{
                 logger.debug(ex.getMessage(), ex);
                 throw new RuntimeException(ex);
             }
+        }
+    }
+
+    @Override
+    public Optional<CustomerPojo> getOptionalCustomerByLogin(String customerLogin) {
+        try {
+            return Optional.of(getCustomerByLogin(customerLogin));
+        } catch (IllegalArgumentException e) {
+            return Optional.empty();
         }
     }
 
@@ -357,7 +367,7 @@ public class DBService implements IDBService{
 
         String connStr = "jdbc:mysql://localhost:3306/testmethods?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
         // Note: uncomment below line if you want to use the docker compose.
-        //connStr = "jdbc:mysql://mysql_db_container:3306/testmethods?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
+        connStr = "jdbc:mysql://mysql_db_container:3306/testmethods?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
         String user = "user";
         String pass = "pass";
         logger.debug("MySQL JDBC Driver Registered.");

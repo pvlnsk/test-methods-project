@@ -61,5 +61,17 @@ public class StatisticOperation implements Operation<StatisticOperation.Statisti
 
         // Их общая сумма денег потраченных покупку различных планов.
         public int overallFee;
+
+        public List<UUID> getCustomerIds() {
+            return customerIds;
+        }
+
+        public int getOverallBalance() {
+            return overallBalance;
+        }
+
+        public int getOverallFee() {
+            return overallFee;
+        }
     }
 }
