@@ -6,6 +6,7 @@ import org.nsu.fit.tm_backend.database.data.PlanPojo;
 import org.nsu.fit.tm_backend.database.data.SubscriptionPojo;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface IDBService {
@@ -20,6 +21,8 @@ public interface IDBService {
     CustomerPojo getCustomer(UUID id);
 
     CustomerPojo getCustomerByLogin(String customerLogin);
+
+    Optional<CustomerPojo> getOptionalCustomerByLogin(String customerLogin);
 
     AccountTokenPojo createAccountToken(AccountTokenPojo accountTokenPojo);
 
